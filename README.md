@@ -88,6 +88,7 @@ All api calls are asynchronous and used in the same way as above in the getCards
 - `getClanWarlog(tag: string)` - Returns the war log for a clan
 - `getClanCurrentWar(tag: string)` - Retrieve information about clan's current clan war
 - `getClanCurrentRiverRace(tag: string)` - Retrieve information about clan's current river race
+- `getClanRiverRaceLog(params: IClanRiverRaceLogParams)` - Returns a list of last clan standings
 
 **Players**
 

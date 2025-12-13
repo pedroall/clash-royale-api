@@ -1,13 +1,20 @@
 import { AxiosInstance } from 'axios'
 import {
+  APIPagingResult,
   IClan,
   IClanDetails,
   IClanMember,
   IClanRequestParams,
   ICurrentWar,
   IWarlog,
+  IClanRiverRaceLog,
+  IClanRiverRaceLogParams,
 } from '../interfaces'
 import { ICurrentRiverRace } from '../interfaces/river_race.interface'
+
+interface IClanRiverRaceLogBaseParams extends IClanRiverRaceLogParams {
+  apiClient: AxiosInstance
+}
 
 /**
  * NOTE From the DOCS:
@@ -116,6 +123,24 @@ const getClanCurrentRiverRace = async (
   return currentRiverRace.data
 }
 
+const getClanRiverRaceLog = async (
+  params: IClanRiverRaceLogBaseParams,
+): Promise<APIPagingResult<IClanRiverRaceLog>> => {
+  const apiParams: { [key: string]: number | string | undefined } = {}
+  apiParams.limit = params.limit
+  if (params.after) apiParams.after = params.after
+  if (params.before) apiParams.before = params.before
+
+  const clanRiverRaceLog = await params.apiClient.get(
+    `/clans/${encodeURIComponent(params.tag)}/riverracelog`,
+    {
+      params: apiParams,
+    },
+  )
+
+  return clanRiverRaceLog.data
+}
+
 export {
   getClans,
   getClanByTag,
@@ -123,4 +148,5 @@ export {
   getClanWarlog,
   getClanCurrentWar,
   getClanCurrentRiverRace,
+  getClanRiverRaceLog,
 }

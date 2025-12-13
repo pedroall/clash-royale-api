@@ -30,6 +30,10 @@ typings/
 # Optional npm cache directory
 .npm
 
+# Lock file
+yarn.lock
+package-lock.json
+
 # Optional eslint cache
 .eslintcache
 

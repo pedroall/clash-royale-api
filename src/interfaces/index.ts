@@ -1,3 +1,7 @@
+export interface APIPagingResult<T> {
+  items: T
+  paging: string
+}
 export * from './arena.interface'
 export * from './clan.interface'
 export * from './tournament.interface'

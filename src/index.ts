@@ -5,6 +5,7 @@ import {
   getCards,
   getClanByTag,
   getClanCurrentRiverRace,
+  getClanRiverRaceLog,
   getClanCurrentWar,
   getClanMembers,
   getClanRankingsForLocation,
@@ -23,6 +24,7 @@ import {
   getTournaments,
 } from './endpoints'
 import {
+  APIPagingResult,
   CardResponse,
   IBattleLog,
   IChest,
@@ -31,6 +33,8 @@ import {
   IClanMember,
   IClanRequestParams,
   ICurrentRiverRace,
+  IClanRiverRaceLog,
+  IClanRiverRaceLogParams,
   ICurrentWar,
   IGlobalTournaments,
   ILeaderboard,
@@ -127,6 +131,18 @@ export class ClashRoyaleAPI {
     tag: string,
   ): Promise<ICurrentRiverRace> {
     return await getClanCurrentRiverRace(tag, this.apiClient)
+  }
+
+  public async getClanRiverRaceLog(
+    params: IClanRiverRaceLogParams,
+  ): Promise<APIPagingResult<IClanRiverRaceLog>> {
+    return await getClanRiverRaceLog({
+      tag: params.tag,
+      limit: params.limit,
+      apiClient: this.apiClient,
+      after: params.after,
+      before: params.before,
+    })
   }
 
   /**
