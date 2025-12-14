@@ -289,3 +289,5 @@ export class ClashRoyaleAPI {
     return await getLeaderboardById(leaderboardId, params, this.apiClient)
   }
 }
+
+export * from './interfaces'

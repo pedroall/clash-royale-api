@@ -1,4 +1,9 @@
-import { ClashRoyaleAPI } from '../'
+import { ClashRoyaleAPI, IClanRiverRaceStanding } from '../'
+
+type _foo = IClanRiverRaceStanding
+
+let something: _foo | undefined
+something == 1
 
 describe('ClashRoyaleAPI', () => {
   const ClashRoyale = new ClashRoyaleAPI('sometoken')
