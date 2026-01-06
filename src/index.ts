@@ -72,7 +72,7 @@ export class ClashRoyaleAPI {
   /**
    * Search all clans by name and/or filtering the results using various criteria.
    *
-   * @param {object:IClanRequestParams} params - Object used to filter results.
+   * @param {IClanRequestParams} params - Object used to filter results.
    */
   public async getClans(params: IClanRequestParams): Promise<IClan[]> {
     return await getClans(params, this.apiClient)
@@ -176,7 +176,7 @@ export class ClashRoyaleAPI {
   /**
    * Search all tournaments by name.
    *
-   * @param {object:ITournamentRequestParams} params
+   * @param {ITournamentRequestParams} params
    */
   public getTournaments = async (
     params: ITournamentRequestParams,
@@ -224,7 +224,6 @@ export class ClashRoyaleAPI {
    * Get information about specific location
    *
    * @param {string} id
-   * @param {ILocationFullRequestParams} params
    */
   public async getLocationById(id: string): Promise<ILocation> {
     return await getLocationById(id, this.apiClient)
@@ -289,5 +288,3 @@ export class ClashRoyaleAPI {
     return await getLeaderboardById(leaderboardId, params, this.apiClient)
   }
 }
-
-export * from './interfaces'

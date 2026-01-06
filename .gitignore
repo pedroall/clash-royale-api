@@ -32,7 +32,6 @@ typings/
 
 # Lock file
 yarn.lock
-package-lock.json
 
 # Optional eslint cache
 .eslintcache
