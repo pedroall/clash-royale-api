@@ -11,7 +11,9 @@ import 'dotenv/config'
 const token = process.env['TOKEN']
 if (!token) throw new Error('Missing env variable "TOKEN" used in tests')
 
-const api = new ClashRoyaleAPI(token)
+const apiUrl = process.env['API_URL']
+
+const api = new ClashRoyaleAPI(token, apiUrl)
 const mapleMiners = '#P9UCUYV2'
 
 describe('Test river race functions', () => {
